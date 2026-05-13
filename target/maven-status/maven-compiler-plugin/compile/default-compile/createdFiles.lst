@@ -1,0 +1,15 @@
+com\cureai\model\User.class
+com\cureai\controller\ChatController.class
+com\cureai\config\SecurityConfig$1.class
+com\cureai\model\ChatSession.class
+com\cureai\config\SecurityConfig.class
+com\cureai\service\AuthService.class
+com\cureai\repository\ChatMessageRepository.class
+com\cureai\CureAiApplication.class
+com\cureai\model\MedicalHistory.class
+com\cureai\service\ChatService.class
+com\cureai\repository\MedicalHistoryRepository.class
+com\cureai\controller\AuthController.class
+com\cureai\repository\ChatSessionRepository.class
+com\cureai\repository\UserRepository.class
+com\cureai\model\ChatMessage.class

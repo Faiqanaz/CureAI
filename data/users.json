@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Jane Doe",
+    "email": "janedoe@gmail.com",
+    "password": "12345678",
+    "role": "doctor",
+    "age": 35,
+    "gender": "other",
+    "verified": true,
+    "specialty": "General Practitioner",
+    "createdAt": "2026-04-28T10:59:58.843Z"
+  },
+  {
+    "name": "Michael Chen",
+    "email": "michaelchen@gmail.com",
+    "password": "12345678",
+    "role": "doctor",
+    "age": 40,
+    "gender": "male",
+    "verified": true,
+    "specialty": "Cardiologist",
+    "createdAt": "2026-04-28T10:59:58.843Z"
+  },
+  {
+    "name": "Sarah Williams",
+    "email": "sarahwilliams@gmail.com",
+    "password": "12345678",
+    "role": "doctor",
+    "age": 38,
+    "gender": "female",
+    "verified": true,
+    "specialty": "Dentist",
+    "createdAt": "2026-04-28T10:59:58.843Z"
+  },
+  {
+    "name": "Emily Park",
+    "email": "emilypark@gmail.com",
+    "password": "12345678",
+    "role": "doctor",
+    "age": 33,
+    "gender": "female",
+    "verified": true,
+    "specialty": "Pediatrician",
+    "createdAt": "2026-04-28T10:59:58.843Z"
+  },
+  {
+    "name": "Robert Martinez",
+    "email": "robertmartinez@gmail.com",
+    "password": "12345678",
+    "role": "doctor",
+    "age": 45,
+    "gender": "male",
+    "verified": true,
+    "specialty": "Dermatologist",
+    "createdAt": "2026-04-28T10:59:58.843Z"
+  },
+  {
+    "name": "Lisa Anderson",
+    "email": "lisaanderson@gmail.com",
+    "password": "12345678",
+    "role": "doctor",
+    "age": 42,
+    "gender": "female",
+    "verified": true,
+    "specialty": "Psychiatrist",
+    "createdAt": "2026-04-28T10:59:58.843Z"
+  }
+]

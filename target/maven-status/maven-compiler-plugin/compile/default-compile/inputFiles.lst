@@ -1,0 +1,14 @@
+C:\SDA\CureAI\src\main\java\com\cureai\CureAiApplication.java
+C:\SDA\CureAI\src\main\java\com\cureai\service\ChatService.java
+C:\SDA\CureAI\src\main\java\com\cureai\repository\MedicalHistoryRepository.java
+C:\SDA\CureAI\src\main\java\com\cureai\repository\ChatSessionRepository.java
+C:\SDA\CureAI\src\main\java\com\cureai\model\ChatSession.java
+C:\SDA\CureAI\src\main\java\com\cureai\service\AuthService.java
+C:\SDA\CureAI\src\main\java\com\cureai\controller\ChatController.java
+C:\SDA\CureAI\src\main\java\com\cureai\repository\UserRepository.java
+C:\SDA\CureAI\src\main\java\com\cureai\model\MedicalHistory.java
+C:\SDA\CureAI\src\main\java\com\cureai\model\ChatMessage.java
+C:\SDA\CureAI\src\main\java\com\cureai\controller\AuthController.java
+C:\SDA\CureAI\src\main\java\com\cureai\repository\ChatMessageRepository.java
+C:\SDA\CureAI\src\main\java\com\cureai\app\config\SecurityConfig.java
+C:\SDA\CureAI\src\main\java\com\cureai\model\User.java
