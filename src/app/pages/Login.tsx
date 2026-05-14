@@ -325,48 +325,85 @@ export default function Login() {
     setLoading(true);
     setError("");
 
-    try {
-      // 1️⃣ Try the backend first
-      try {
-        const res = await axios.post("http://localhost:8080/api/login", { email, password, role });
-        if (res.data && res.data.success) {
-          DB.setSession({ email, role, name: res.data.name });
-          setSuccess(true);
-          setTimeout(() => navigate(role === "doctor" ? "/doctor/dashboard" : "/patient/dashboard"), 2000);
-          return;
-        } else {
-          setError(res.data.message || "Invalid credentials.");
-          setShake(true);
-          setTimeout(() => setShake(false), 500);
-          return;
-        }
-      } catch {
-        // Backend unavailable — fall through to local DB
-      }
+   try {
+  // 1️⃣ Try backend first
+  try {
+    const res = await axios.post("http://localhost:8080/api/login", {
+      email,
+      password,
+      role
+    });
 
-      // 2️⃣ Check local database
-      const match = DB.findUser(email, password, role);
-      if (match) {
-        if (match.verified === false) {
-          setError("Your doctor account is pending verification. Please wait for admin approval.");
-          setShake(true);
-          setTimeout(() => setShake(false), 500);
-          return;
-        }
-        DB.setSession({ email, role, name: match.name });
-        setSuccess(true);
-        setTimeout(() => navigate(role === "doctor" ? "/doctor/dashboard" : "/patient/dashboard"), 2000);
-        return;
-      }
+if (res.data && res.data.success) {
+  localStorage.setItem(
+    "cureai_user",
+    JSON.stringify({
+      email,
+      role,
+      name: res.data.name
+    })
+  );
 
-      // 3️⃣ Both failed
-      setError("Invalid email or password.");
+  setSuccess(true);
+
+  setTimeout(() =>
+    navigate(role === "doctor" ? "/doctor/dashboard" : "/patient/dashboard"),
+  2000);
+
+  return;
+}
+      else {
+      setError(res.data.message || "Invalid credentials.");
       setShake(true);
+
       setTimeout(() => setShake(false), 500);
-    } finally {
-      // Always release the loading state unless we navigated away
-      setLoading(false);
+
+      return;
     }
+
+  } catch {
+    // Backend unavailable — continue to local DB
+  }
+
+   
+  // 2️⃣ Check local database
+  const match = DB.findUser(email, password, role);
+
+if (match) {
+  if (match.verified === false) {
+    setError("Your doctor account is pending verification.");
+    setShake(true);
+    setTimeout(() => setShake(false), 500);
+    return;
+  }
+
+  localStorage.setItem(
+    "cureai_user",
+    JSON.stringify({
+      email,
+      role,
+      name: match.name
+    })
+  );
+
+  setSuccess(true);
+
+  setTimeout(() =>
+    navigate(role === "doctor" ? "/doctor/dashboard" : "/patient/dashboard"),
+  2000);
+
+  return;
+}
+
+  // 3️⃣ Login failed
+  setError("Invalid email or password.");
+
+  setShake(true);
+  setTimeout(() => setShake(false), 500);
+
+} finally {
+  setLoading(false);
+}
   };
 
   return (

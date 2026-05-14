@@ -39,6 +39,35 @@ const STYLES = `
   .mh-export-btn{padding:9px 18px;border-radius:11px;border:1.5px solid rgba(56,182,255,.2);background:rgba(56,182,255,.07);color:#38b6ff;font-size:12.5px;font-family:'Sora',sans-serif;font-weight:600;cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:6px}
   .mh-export-btn:hover{background:rgba(56,182,255,.15);border-color:rgba(56,182,255,.4)}
 
+  /* ── Transparent Scrollbar (ONLY ADD THIS) ── */
+
+/* Chrome / Edge / Safari */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 182, 255, 0.35);
+  background-clip: content-box;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.15) transparent;
+}
   /* main */
   .mh-main{max-width:1100px;margin:0 auto;padding:36px 36px;position:relative;z-index:1}
   @media(max-width:700px){.mh-main{padding:20px 16px}}

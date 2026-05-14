@@ -21,9 +21,18 @@ const STYLES = `
   @keyframes marquee   { from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
   @keyframes navDown   { from{ opacity:0; transform:translateY(-16px); } to{ opacity:1; transform:translateY(0); } }
 
-  html,body { height:100%; }
+  html,body { height:100%; 
+            overflow-y: auto;}
+  body {
+        overflow-x: hidden;
+        }
   body,.ab-root { font-family:'Sora',sans-serif; background:#050d1a; color:#fff; min-height:100vh; overflow-x:hidden; }
-
+  
+  .ab-root {
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  }
   .ab-grid { position:fixed; inset:0; z-index:0; pointer-events:none;
     background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
     background-size:52px 52px; }

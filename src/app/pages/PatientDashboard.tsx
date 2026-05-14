@@ -18,8 +18,19 @@ const STYLES = `
   @keyframes shimmerLine { 0%{background-position:200% center} 100%{background-position:-200% center} }
 
   html,body{height:100%}
-  body,.pd-root{font-family:'Sora',sans-serif;background:#050d1a;color:#fff;min-height:100vh;overflow-x:hidden}
-  .pd-root{display:flex;min-height:100vh}
+  body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.pd-root {
+  font-family: 'Sora', sans-serif;
+  background: #050d1a;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  overflow-x: hidden;
+}
 
   /* sidebar */
   .pd-sidebar{width:256px;min-height:100vh;background:rgba(7,14,28,.95);border-right:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:50;animation:sideIn .45s cubic-bezier(.34,1.2,.64,1) both}
@@ -44,8 +55,47 @@ const STYLES = `
   .pd-logout:hover{border-color:rgba(248,113,113,.4);color:#f87171;background:rgba(248,113,113,.06)}
 
   /* main */
-  .pd-main{flex:1;margin-left:256px;padding:32px 36px;min-height:100vh;position:relative}
-  @media(max-width:900px){.pd-sidebar{display:none}.pd-main{margin-left:0;padding:20px}}
+.pd-main {
+  flex: 1;
+  margin-left: 256px;
+  padding: 32px 36px;
+
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+
+  /* ── SMOOTH SCROLL ── */
+  scroll-behavior: smooth;
+
+  /* Firefox scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+/* Chrome / Edge / Safari */
+.pd-main::-webkit-scrollbar {
+  width: 6px;
+}
+
+.pd-main::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pd-main::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.pd-main::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 182, 255, 0.25);
+}
+
+@media(max-width:900px){
+  .pd-sidebar{display:none}
+  .pd-main{margin-left:0;padding:20px}
+}
+
   .pd-orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
   .pd-orb1{width:400px;height:400px;background:radial-gradient(circle,rgba(56,182,255,.08) 0%,transparent 70%);top:-100px;right:0;animation:drift 12s ease-in-out infinite}
   .pd-orb2{width:300px;height:300px;background:radial-gradient(circle,rgba(99,102,241,.07) 0%,transparent 70%);bottom:0;left:280px;animation:drift 14s ease-in-out infinite reverse}
@@ -280,8 +330,8 @@ export default function PatientDashboard() {
   const [showReminders, setShowReminders] = useState(false);
   const scoreRef = useRef<HTMLDivElement>(null);
 
-  const user     = (() => { try { return JSON.parse(localStorage.getItem("cureai_user") || "{}"); } catch { return {}; } })();
-  const userName = user?.name || "Sarah";
+const user = JSON.parse(localStorage.getItem("cureai_user") || "{}");
+const userName = user?.name || "Guest";
   const today    = new Date().toLocaleDateString("en-US", { weekday:"long", month:"long", day:"numeric" });
 
   useEffect(() => {
